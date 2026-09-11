@@ -1,0 +1,6 @@
+archives/
+old_updates/
+*.key
+*.pem
+*.p12
+.DS_Store
