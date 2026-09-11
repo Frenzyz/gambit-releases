@@ -26,26 +26,22 @@ In-app updates use [Sparkle 2](https://sparkle-project.org/). The feed is:
 
 ## Layout
 
-- `appcast.xml` — Sparkle 2 feed (updated when a release is published)
+- `appcast.xml` — Sparkle 2 feed (written by the local publish script)
 - `notes/` — HTML release notes (`0.1.0.html`, …)
-- `.github/workflows/publish-appcast.yml` — regenerates the feed from the
-  latest GitHub Release DMG
+
+There is no GitHub Actions workflow for notarization or the appcast.
 
 ## Publish a build
 
-From a machine that has `Gambit.dmg` (see `scripts/package-macos-dmg.sh` in
-the source repo):
+On a Mac, from the Gambit source checkout:
 
-```bash
-gh release create v0.1.0 Gambit.dmg \
-  --repo Frenzyz/gambit-releases \
-  --title "Gambit 0.1.0 beta" \
-  --notes-file notes/0.1.0.html
-```
+1. `cp .env.example .env` and fill it locally (never commit it)
+2. Run `packaging/macos/make-dmg.sh`, then `packaging/macos/notarize.sh`
+3. Run `packaging/macos/publish-update.sh` with `--releases-dir` pointing at
+   this clone and optional `--gh-release` / `--push`
 
-Set the Actions secret **`SPARKLE_ED25519_PRIVATE_KEY`** (Ed25519 seed,
-one line, never committed) on this repo. The workflow downloads Sparkle’s
-`generate_appcast` / `sign_update` and writes `appcast.xml`.
+See `packaging/macos/README.md` in Frenzyz/Gambit. `gh release` runs on the
+laptop. Do not add Actions secrets for Apple or Sparkle.
 
 Without Developer ID + notarization, Sparkle will not *install* an update
 even if the feed lists one. Testers still use the DMG download above.

@@ -1,5 +1,9 @@
 archives/
 old_updates/
+.env
+.env.notarize
+.env.*
+!.env.example
 *.key
 *.pem
 *.p12
