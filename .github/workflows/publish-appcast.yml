@@ -35,6 +35,25 @@ jobs:
           gh release download --repo "${{ github.repository }}" --pattern "Gambit.dmg" --dir archives
           test -f archives/Gambit.dmg
           cp notes/*.html archives/ 2>/dev/null || true
+      - name: Notarize DMG when Apple secrets exist
+        env:
+          APPLE_ID: ${{ secrets.APPLE_ID }}
+          APPLE_APP_SPECIFIC_PASSWORD: ${{ secrets.APPLE_APP_SPECIFIC_PASSWORD }}
+          APPLE_ID_PASSWORD: ${{ secrets.APPLE_ID_PASSWORD }}
+          APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
+        run: |
+          password="${APPLE_APP_SPECIFIC_PASSWORD:-${APPLE_ID_PASSWORD:-}}"
+          if [ -z "$APPLE_ID" ] || [ -z "$password" ] || [ -z "$APPLE_TEAM_ID" ]; then
+            echo "Notarization skipped: set APPLE_ID, APPLE_APP_SPECIFIC_PASSWORD, APPLE_TEAM_ID."
+            echo "Paste the app-specific password only in the GitHub secret field, not into chat."
+            exit 0
+          fi
+          xcrun notarytool submit archives/Gambit.dmg \
+            --apple-id "$APPLE_ID" \
+            --password "$password" \
+            --team-id "$APPLE_TEAM_ID" \
+            --wait
+          xcrun stapler staple archives/Gambit.dmg
       - name: Generate appcast
         env:
           SPARKLE_ED25519_PRIVATE_KEY: ${{ secrets.SPARKLE_ED25519_PRIVATE_KEY }}
