@@ -13,9 +13,8 @@ use):
 
 **https://github.com/Frenzyz/gambit-releases/releases/latest/download/Gambit.dmg**
 
-That build is **beta**. It is not Developer ID signed or notarized unless a
-release note says otherwise. If macOS Gatekeeper blocks it, Control-click
-Gambit and choose Open.
+That build is an Apple-notarized **beta** (macOS 13+ Apple silicon). WebKit
+is the default engine; Google Docs, Sheets, and Slides open in Chromium.
 
 In-app updates use [Sparkle 2](https://sparkle-project.org/). The feed is:
 
@@ -43,5 +42,4 @@ On a Mac, from the Gambit source checkout:
 See `packaging/macos/README.md` in Frenzyz/Gambit. `gh release` runs on the
 laptop. Do not add Actions secrets for Apple or Sparkle.
 
-Without Developer ID + notarization, Sparkle will not *install* an update
-even if the feed lists one. Testers still use the DMG download above.
+0.1.0 is Developer ID signed and stapled. Sparkle can install it.
