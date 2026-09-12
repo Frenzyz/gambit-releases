@@ -7,11 +7,11 @@
     <language>en</language>
     <item>
       <title>Gambit 0.1.0</title>
-      <pubDate>Sat, 12 Sep 2026 14:15:11 +0000</pubDate>
+      <pubDate>Sat, 12 Sep 2026 14:50:51 +0000</pubDate>
       <sparkle:version>0.1.0</sparkle:version>
       <sparkle:shortVersionString>0.1.0</sparkle:shortVersionString>
       <description><![CDATA[<p>Apple-notarized macOS beta. WebKit by default; Chromium for Google Docs, Sheets, and Slides. Ordinary http(s) stays WebKit. Cookie jars do not follow a tab across engines.</p>]]></description>
-      <enclosure url="https://github.com/Frenzyz/gambit-releases/releases/latest/download/Gambit.dmg" length="163630378" type="application/octet-stream" sparkle:edSignature="043KQvEljhJqfrMA4i53UAxcxKP/0h0F9aFq46MfWPSu/VJ55PyArM1wQ85jdEkwPdxzKKZYnw9tmo69cjQNAA==" />
+      <enclosure url="https://github.com/Frenzyz/gambit-releases/releases/latest/download/Gambit.dmg" length="163630051" type="application/octet-stream" sparkle:edSignature="mZG28fUQL+LXujbJFeZIvVHbTRxfBudLzeYpelK9yG8ctO9m2rLp1GiTrxs9rLRgWmHI0ofWl1t3tnEbpEbfBw==" />
     </item>
   </channel>
 </rss>
