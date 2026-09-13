@@ -7,11 +7,11 @@
     <language>en</language>
     <item>
       <title>Gambit 0.1.0</title>
-      <pubDate>Sun, 13 Sep 2026 05:06:41 +0000</pubDate>
+      <pubDate>Sun, 13 Sep 2026 05:44:32 +0000</pubDate>
       <sparkle:version>0.1.0</sparkle:version>
       <sparkle:shortVersionString>0.1.0</sparkle:shortVersionString>
       <description><![CDATA[<p>Gambit 0.1.0.</p>]]></description>
-      <enclosure url="https://github.com/Frenzyz/gambit-releases/releases/latest/download/Gambit.dmg" length="147320281" type="application/octet-stream" sparkle:edSignature="1a7P8HJDHSzFJi7qw6hLHZz/OpVYzrZxTQrBKW8RqeRqiBYJvQrvvw+/fOwg+whR/WYIroYvw0gdzM2Gcfz5Aw==" />
+      <enclosure url="https://github.com/Frenzyz/gambit-releases/releases/latest/download/Gambit.dmg" length="147313431" type="application/octet-stream" sparkle:edSignature="SXTTby1g0H/hA0lNZxqAbv8AituuRX2s1XALnN6Y9zUsNG+cGSxMHGfgg2/Npu4NBt9G4JNUBJgKKqfOpL3vDA==" />
     </item>
   </channel>
 </rss>
