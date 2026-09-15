@@ -6,12 +6,12 @@
     <description>Gambit Sparkle 2 appcast.</description>
     <language>en</language>
     <item>
-      <title>Gambit 0.1.0</title>
-      <pubDate>Mon, 14 Sep 2026 20:44:10 +0000</pubDate>
-      <sparkle:version>0.1.0</sparkle:version>
-      <sparkle:shortVersionString>0.1.0</sparkle:shortVersionString>
-      <description><![CDATA[<p>Gambit 0.1.0.</p>]]></description>
-      <enclosure url="https://github.com/Frenzyz/gambit-releases/releases/latest/download/Gambit.dmg" length="147472201" type="application/octet-stream" sparkle:edSignature="y1Is2bRJz4Ov8mqww7xr7PIJ8vHFj10yHi6ei2eBQKuRkbfxdZVwpwZAOnDcq2TDxXFhYl3updPkF9Ose2CuBA==" />
+      <title>Gambit 0.1.1</title>
+      <pubDate>Tue, 15 Sep 2026 06:54:31 +0000</pubDate>
+      <sparkle:version>0.1.1</sparkle:version>
+      <sparkle:shortVersionString>0.1.1</sparkle:shortVersionString>
+      <description><![CDATA[<p>Gambit 0.1.1.</p>]]></description>
+      <enclosure url="https://github.com/Frenzyz/gambit-releases/releases/latest/download/Gambit.dmg" length="147537379" type="application/octet-stream" sparkle:edSignature="C4aEwcVTSM8n4snfhgQmQAnfjKMTIr8H/rlwBh/dJPcb2OIOkVVIZLsZtugnzDux570Q2ilqO0Jv7l5X/+S3Cw==" />
     </item>
   </channel>
 </rss>
