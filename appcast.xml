@@ -6,12 +6,36 @@
     <description>Gambit Sparkle 2 appcast.</description>
     <language>en</language>
     <item>
-      <title>Gambit 0.1.1</title>
-      <pubDate>Tue, 15 Sep 2026 06:54:31 +0000</pubDate>
-      <sparkle:version>0.1.1</sparkle:version>
-      <sparkle:shortVersionString>0.1.1</sparkle:shortVersionString>
-      <description><![CDATA[<p>Gambit 0.1.1.</p>]]></description>
-      <enclosure url="https://github.com/Frenzyz/gambit-releases/releases/latest/download/Gambit.dmg" length="147537379" type="application/octet-stream" sparkle:edSignature="C4aEwcVTSM8n4snfhgQmQAnfjKMTIr8H/rlwBh/dJPcb2OIOkVVIZLsZtugnzDux570Q2ilqO0Jv7l5X/+S3Cw==" />
+      <title>Gambit 0.1.2</title>
+      <pubDate>Fri, 18 Sep 2026 08:01:47 +0000</pubDate>
+      <sparkle:version>0.1.2</sparkle:version>
+      <sparkle:shortVersionString>0.1.2</sparkle:shortVersionString>
+      <description><![CDATA[# Gambit 0.1.2
+
+Released September 18, 2026.
+
+## Highlights
+
+- Rebuilt Gambit’s native macOS chrome with Liquid Glass navigation surfaces, adaptive transparency, improved toolbar controls, and refined tab focus treatment.
+- Added persistent, manageable chats with Personal, Agent Research, and AutoPilot modes attached to each chat.
+- Unified browser tabs, cookies, history, WebKit storage, and Chromium context across chat modes while preserving policy and password safeguards.
+- Made Chromium the default engine and added an optional Hybrid WebKit setting.
+- Added safe GitHub-Flavored Markdown rendering for headings, lists, tables, links, blockquotes, and code.
+- Streamlined agent activity: successful tool calls live under Run details while approvals and failures remain inline.
+- Added automatic content/domain tab grouping, hover expansion, drag-and-drop grouping, conditional audio controls, and native macOS tab context menus.
+- Replaced the global Stop All control with a per-chat Stop Session action.
+
+## Reliability and security
+
+- Single-writer ownership now follows the physical shared tab across chat modes.
+- Chat restoration remains restricted to trusted browser chrome.
+- Chromium, WebKit, extension popup, and cookie handoff paths use the shared browser identity.
+- Production Markdown dependencies pass the runtime vulnerability audit.
+
+## Notes
+
+This release is built and published from the local macOS release workflow. Signing and notarization status is determined by the credentials configured on the release machine.]]></description>
+      <enclosure url="https://github.com/Frenzyz/gambit-releases/releases/latest/download/Gambit.dmg" length="147585997" type="application/octet-stream" sparkle:edSignature="nOKlbxh21LwTR08yhzbGokgH7rKoBcrdbK1K0/oCT6YjAv3VMDv45YfQUZ9crVkvjs5HqT7/Ucol1sVL81D8Cw==" />
     </item>
   </channel>
 </rss>
