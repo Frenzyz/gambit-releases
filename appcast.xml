@@ -6,36 +6,24 @@
     <description>Gambit Sparkle 2 appcast.</description>
     <language>en</language>
     <item>
-      <title>Gambit 0.1.2</title>
-      <pubDate>Fri, 18 Sep 2026 08:01:47 +0000</pubDate>
-      <sparkle:version>0.1.2</sparkle:version>
-      <sparkle:shortVersionString>0.1.2</sparkle:shortVersionString>
-      <description><![CDATA[# Gambit 0.1.2
+      <title>Gambit 0.1.3</title>
+      <pubDate>Fri, 18 Sep 2026 08:16:21 +0000</pubDate>
+      <sparkle:version>0.1.3</sparkle:version>
+      <sparkle:shortVersionString>0.1.3</sparkle:shortVersionString>
+      <description><![CDATA[# Gambit 0.1.3
 
 Released September 18, 2026.
 
-## Highlights
+## Tab UX hotfix
 
-- Rebuilt Gambit’s native macOS chrome with Liquid Glass navigation surfaces, adaptive transparency, improved toolbar controls, and refined tab focus treatment.
-- Added persistent, manageable chats with Personal, Agent Research, and AutoPilot modes attached to each chat.
-- Unified browser tabs, cookies, history, WebKit storage, and Chromium context across chat modes while preserving policy and password safeguards.
-- Made Chromium the default engine and added an optional Hybrid WebKit setting.
-- Added safe GitHub-Flavored Markdown rendering for headings, lists, tables, links, blockquotes, and code.
-- Streamlined agent activity: successful tool calls live under Run details while approvals and failures remain inline.
-- Added automatic content/domain tab grouping, hover expansion, drag-and-drop grouping, conditional audio controls, and native macOS tab context menus.
-- Replaced the global Stop All control with a per-chat Stop Session action.
+- Removed automatic and arbitrary tab grouping.
+- Removed collapsed tab stacks and dynamic hover resizing.
+- Restored a stable creation-order tab strip with predictable fixed widths.
+- Kept a subtle hover treatment and one clear active-tab indicator.
+- Preserved native macOS tab context menus for Duplicate, Mute/Unmute, and Close.
 
-## Reliability and security
-
-- Single-writer ownership now follows the physical shared tab across chat modes.
-- Chat restoration remains restricted to trusted browser chrome.
-- Chromium, WebKit, extension popup, and cookie handoff paths use the shared browser identity.
-- Production Markdown dependencies pass the runtime vulnerability audit.
-
-## Notes
-
-This release is built and published from the local macOS release workflow. Signing and notarization status is determined by the credentials configured on the release machine.]]></description>
-      <enclosure url="https://github.com/Frenzyz/gambit-releases/releases/latest/download/Gambit.dmg" length="147585997" type="application/octet-stream" sparkle:edSignature="nOKlbxh21LwTR08yhzbGokgH7rKoBcrdbK1K0/oCT6YjAv3VMDv45YfQUZ9crVkvjs5HqT7/Ucol1sVL81D8Cw==" />
+This hotfix supersedes Gambit 0.1.2 in the Sparkle update feed.]]></description>
+      <enclosure url="https://github.com/Frenzyz/gambit-releases/releases/latest/download/Gambit.dmg" length="147587338" type="application/octet-stream" sparkle:edSignature="bSMrBVbbUw2Te42agxjdcmScpg2ikxtSVDDca/nxo8nq34lp38ATSK+m2s9k1/nV7CMw4+LOysnq2Te7nthDDg==" />
     </item>
   </channel>
 </rss>
