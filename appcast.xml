@@ -6,24 +6,24 @@
     <description>Gambit Sparkle 2 appcast.</description>
     <language>en</language>
     <item>
-      <title>Gambit 0.1.3</title>
-      <pubDate>Fri, 18 Sep 2026 08:16:21 +0000</pubDate>
-      <sparkle:version>0.1.3</sparkle:version>
-      <sparkle:shortVersionString>0.1.3</sparkle:shortVersionString>
-      <description><![CDATA[# Gambit 0.1.3
+      <title>Gambit 0.1.4</title>
+      <pubDate>Fri, 18 Sep 2026 15:50:39 +0000</pubDate>
+      <sparkle:version>0.1.4</sparkle:version>
+      <sparkle:shortVersionString>0.1.4</sparkle:shortVersionString>
+      <description><![CDATA[# Gambit 0.1.4
 
 Released September 18, 2026.
 
-## Tab UX hotfix
+## New Tab and audio fixes
 
-- Removed automatic and arbitrary tab grouping.
-- Removed collapsed tab stacks and dynamic hover resizing.
-- Restored a stable creation-order tab strip with predictable fixed widths.
-- Kept a subtle hover treatment and one clear active-tab indicator.
-- Preserved native macOS tab context menus for Duplicate, Mute/Unmute, and Close.
+- Fixed New Tab Page searches that fell through to `about:blank`; standalone
+  submissions now navigate through the trusted native host.
+- Removed the dead gap between the last horizontal tab and the New Tab button.
+- Added real Chromium audio detection so the per-tab audio control appears only
+  while a Chromium tab is playing, not on every tab.
 
-This hotfix supersedes Gambit 0.1.2 in the Sparkle update feed.]]></description>
-      <enclosure url="https://github.com/Frenzyz/gambit-releases/releases/latest/download/Gambit.dmg" length="147587338" type="application/octet-stream" sparkle:edSignature="bSMrBVbbUw2Te42agxjdcmScpg2ikxtSVDDca/nxo8nq34lp38ATSK+m2s9k1/nV7CMw4+LOysnq2Te7nthDDg==" />
+This release supersedes Gambit 0.1.3 in the Sparkle update feed.]]></description>
+      <enclosure url="https://github.com/Frenzyz/gambit-releases/releases/latest/download/Gambit.dmg" length="147595036" type="application/octet-stream" sparkle:edSignature="8/S2DPuQ4JeInWNhGjnVJNIXCKv65KzK6YUQsgeYgcZo4h8mbf7AO4jFmG/oFILrksWTlv0eH5hO6k6qAVibBw==" />
     </item>
   </channel>
 </rss>
