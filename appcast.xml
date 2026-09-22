@@ -6,24 +6,17 @@
     <description>Gambit Sparkle 2 appcast.</description>
     <language>en</language>
     <item>
-      <title>Gambit 0.1.4</title>
-      <pubDate>Fri, 18 Sep 2026 15:50:39 +0000</pubDate>
-      <sparkle:version>0.1.4</sparkle:version>
-      <sparkle:shortVersionString>0.1.4</sparkle:shortVersionString>
-      <description><![CDATA[# Gambit 0.1.4
-
-Released September 18, 2026.
-
-## New Tab and audio fixes
-
-- Fixed New Tab Page searches that fell through to `about:blank`; standalone
-  submissions now navigate through the trusted native host.
-- Removed the dead gap between the last horizontal tab and the New Tab button.
-- Added real Chromium audio detection so the per-tab audio control appears only
-  while a Chromium tab is playing, not on every tab.
-
-This release supersedes Gambit 0.1.3 in the Sparkle update feed.]]></description>
-      <enclosure url="https://github.com/Frenzyz/gambit-releases/releases/latest/download/Gambit.dmg" length="147595036" type="application/octet-stream" sparkle:edSignature="8/S2DPuQ4JeInWNhGjnVJNIXCKv65KzK6YUQsgeYgcZo4h8mbf7AO4jFmG/oFILrksWTlv0eH5hO6k6qAVibBw==" />
+      <title>Gambit 0.1.5</title>
+      <pubDate>Tue, 22 Sep 2026 04:48:27 +0000</pubDate>
+      <sparkle:version>0.1.5</sparkle:version>
+      <sparkle:shortVersionString>0.1.5</sparkle:shortVersionString>
+      <description><![CDATA[<h2>Gambit 0.1.5</h2>
+<ul>
+<li>Fixed the duplicate New Tab on launch: Gambit now opens with exactly one New Tab.</li>
+<li>Carries the 0.1.4 fix so New Tab searches load results instead of about:blank.</li>
+<li>Carries per-tab Chromium audio detection and the horizontal tab-strip spacing fix.</li>
+</ul>]]></description>
+      <enclosure url="https://github.com/Frenzyz/gambit-releases/releases/latest/download/Gambit.dmg" length="147612278" type="application/octet-stream" sparkle:edSignature="eg1ey+fj5hdMZ+zsmmNigHVbD5h9+svuwT0Cp/mcEsLiDLj8xFXxpl92HAi7qmUDnyfp2NhvxDY2AA0W+u+8DQ==" />
     </item>
   </channel>
 </rss>
