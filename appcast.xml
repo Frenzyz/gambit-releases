@@ -6,17 +6,18 @@
     <description>Gambit Sparkle 2 appcast.</description>
     <language>en</language>
     <item>
-      <title>Gambit 0.1.6</title>
-      <pubDate>Wed, 23 Sep 2026 07:03:23 +0000</pubDate>
-      <sparkle:version>0.1.6</sparkle:version>
-      <sparkle:shortVersionString>0.1.6</sparkle:shortVersionString>
-      <description><![CDATA[<h2>Gambit 0.1.6</h2>
+      <title>Gambit 0.1.7</title>
+      <pubDate>Tue, 13 Oct 2026 05:46:32 +0000</pubDate>
+      <sparkle:version>0.1.7</sparkle:version>
+      <sparkle:shortVersionString>0.1.7</sparkle:shortVersionString>
+      <description><![CDATA[<h2>Gambit 0.1.7</h2>
 <ul>
-<li>Fixed http(s) tabs that loaded as about:blank: the Chromium page view now loads its pending URL once the browser exists.</li>
-<li>Carries the 0.1.5 launch fix so Gambit opens with exactly one New Tab.</li>
-<li>Carries the 0.1.4 New Tab navigation fix, per-tab Chromium audio detection, and tab-strip spacing fix.</li>
+<li>Safari-style chrome: horizontal tabs, a tighter toolbar, and secondary actions in the More menu. Downloads open in a shelf beside the page.</li>
+<li>Ask keeps working through long tasks. The consecutive tool-round cap is removed, and local Ask is routed with the Fastino decision model.</li>
+<li>Chromium script evaluation no longer crashes the helper. Extension actions use a Chrome-like panel, and Google sign-in stays on WebKit.</li>
+<li>Private windows stay dark with readable menus. Failed and 404 loads show a host error page, and Command-T opens a new tab.</li>
 </ul>]]></description>
-      <enclosure url="https://github.com/Frenzyz/gambit-releases/releases/latest/download/Gambit.dmg" length="147612630" type="application/octet-stream" sparkle:edSignature="gYT8bYLu5J+PPCHHdUEnl2O9e+JyFKrnhShhqgMJzqh8g0b8SOgZ62C2h0qX6CpYPS9hCo0xLzIZR0WnnKNuCg==" />
+      <enclosure url="https://github.com/Frenzyz/gambit-releases/releases/latest/download/Gambit.dmg" length="152828561" type="application/octet-stream" sparkle:edSignature="U6BlEnVrWMDNmr6aaoIgVtpc3OYnr28UMhZtBPeEhWoUx754ZiukvPyoi+zcy/6foFRpSsmTwdyY4wKv7DsZBA==" />
     </item>
   </channel>
 </rss>
