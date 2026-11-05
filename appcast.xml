@@ -6,12 +6,40 @@
     <description>Gambit Sparkle 2 appcast.</description>
     <language>en</language>
     <item>
-      <title>Gambit 0.1.8</title>
-      <pubDate>Thu, 05 Nov 2026 16:54:26 +0000</pubDate>
-      <sparkle:version>0.1.8</sparkle:version>
-      <sparkle:shortVersionString>0.1.8</sparkle:shortVersionString>
-      <description><![CDATA[<p>Gambit 0.1.8.</p>]]></description>
-      <enclosure url="https://github.com/Frenzyz/gambit-releases/releases/latest/download/Gambit.dmg" length="152927612" type="application/octet-stream" sparkle:edSignature="ilrkH4mAS4IKK97KTsHlG8im2gPtDIu/tRGIeldqtfS2z8ZqQN3jcRNjcUdAqKp3s0hsg3rp8cJ2VL36WjSMBg==" />
+      <title>Gambit 0.1.9</title>
+      <pubDate>Thu, 05 Nov 2026 22:47:35 +0000</pubDate>
+      <sparkle:version>0.1.9</sparkle:version>
+      <sparkle:shortVersionString>0.1.9</sparkle:shortVersionString>
+      <description><![CDATA[# Gambit 0.1.9
+
+Released November 5, 2026.
+
+## Since 0.1.8
+
+- **One engine, everywhere.** Gambit now runs on WebKit alone. Chromium is gone
+  from this build: no bundled browser, roughly a tenth of the download, and
+  Apple's security updates apply to the whole page engine instead of half of it.
+- **Chrome extensions still work.** WebKit runs real Manifest V3 extensions
+  through Apple's own extension framework. uBlock Origin Lite blocks as before,
+  and Jobright's helper panel loads and runs. A compatibility layer fills the
+  small number of gaps between Chrome's extension APIs and WebKit's; it touches
+  only Gambit's copy of an extension, never the one you installed.
+- **Docs, Sheets, and Slides.** Still editable, and text is sharp rather than
+  soft on Retina displays.
+- **Passkeys still work** with the same Touch ID flow as 0.1.8.
+- **A correct app icon.** The Dock no longer shows a placeholder.
+
+## Known limits
+
+- Extensions that need `offscreen` documents or `userScripts` are not supported.
+  Settings reports this per extension rather than failing silently.
+- An extension's toolbar popup may render blank even when the extension itself
+  works on the page.
+- Installing from the Chrome Web Store opens the store page; the one-click
+  install flow that Chromium provided is not reproduced yet.
+- A few sites assume Chromium-specific behavior. If one breaks, the page
+  reports it rather than loading a blank view.]]></description>
+      <enclosure url="https://github.com/Frenzyz/gambit-releases/releases/latest/download/Gambit.dmg" length="14375668" type="application/octet-stream" sparkle:edSignature="nlvr/UYEviTRo/cgnFftEuSpsKqa9nryVleEUUCBUSiMkWwY3Q1zGjvDNM8GfAQOdk6kDDvW4wrqgXyhGn64Cw==" />
     </item>
   </channel>
 </rss>
