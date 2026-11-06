@@ -6,81 +6,56 @@
     <description>Gambit Sparkle 2 appcast.</description>
     <language>en</language>
     <item>
-      <title>Gambit 1.0</title>
-      <pubDate>Fri, 06 Nov 2026 03:36:32 +0000</pubDate>
-      <sparkle:version>1.0</sparkle:version>
-      <sparkle:shortVersionString>1.0</sparkle:shortVersionString>
-      <description><![CDATA[# Gambit 1.0
+      <title>Gambit 1.1</title>
+      <pubDate>Fri, 06 Nov 2026 05:00:19 +0000</pubDate>
+      <sparkle:version>1.1</sparkle:version>
+      <sparkle:shortVersionString>1.1</sparkle:shortVersionString>
+      <description><![CDATA[# Gambit 1.1
 
 Released November 5, 2026.
 
-Gambit's first stable release. The browser is now its own thing rather than a
-fork wearing someone else's name: every surface says Gambit, the agent panel
-looks like the rest of the app, and updates come from Gambit's own feed.
+## Pictures, in the agent
 
-## The agent, rebuilt
+- **Screenshots reach the model that can read them.** An agent asked to look at
+  a page takes a screenshot, and that picture goes to the model as an image —
+  but only if the model accepts images. Sent to one that does not, the request
+  was refused outright and the whole turn was lost, including the page text
+  the model could still have used. That is fixed, and a text-only model is now
+  told a screenshot was taken and pointed at the tools that read the page as
+  text instead.
+- **The picker says which models see images.** Rows that accept pictures carry
+  a "sees images" mark, so the choice is visible where the choice is made
+  rather than found by hitting an error.
+- **A refusal reads honestly.** An image sent to a model that cannot take one
+  used to report "the gateway doesn't know that model", which sends you to
+  check your API key. It now says the model cannot read images and points at
+  the picker.
 
-- **A panel that matches the app.** The agent pane was the last piece still
-  drawn in the old fork's palette — a burnt orange that belonged to another
-  product, and an empty state that was a sparkle in a gradient circle. It now
-  uses Gambit's brass, which means exactly one thing: the agent is working.
-  The empty state is the pawn from the app icon, at the size of a paragraph.
-- **A status light.** One small lamp in the pane's header, breathing while the
-  agent works, red if a turn failed. A glance answers "is it doing anything"
-  without reading a line of text.
-- **The agent's own door.** A pawn in the tab strip, brass while the pane is
-  open. It was reachable only by a keyboard shortcut before.
+## Updates, fixed
 
-## Past chats
-
-- **Conversations are kept.** "New chat" used to throw the last one away —
-  the transcript and the model's memory of it both. Every chat is now archived
-  as you work, listed newest first, and reopening one continues it rather than
-  merely replaying it.
-- Delete is there, and asks once.
-
-## OpenRouter, properly
-
-- **A searchable model picker.** The old control offered three tiers, which is
-  the right question for a router that resolves "sonnet" and the wrong one for
-  a gateway with 450 models. The picker lists what your key can actually use,
-  with price per million tokens on every row.
-- **Only models that can call tools are offered.** A model that cannot click
-  can only talk about the page, so offering it would be offering a broken
-  agent. 316 of 381 catalogue entries qualify.
-- **Model ids survive.** OpenRouter names models `anthropic/claude-sonnet-4.5`;
-  the app used to fold that to `sonnet`, which is a 404. Names are now sent
-  exactly as set.
-- **The address is no longer doubled.** `…/api/v1` used to become
-  `…/api/v1/v1/chat/completions`.
-
-## Passwords and passkeys
-
-- **Touch ID before a secret.** Picking an account read the keychain and typed
-  the password with no check that the person asking was the person who saved
-  it. It now asks first. A name-only screen asks for nothing, because there is
-  no secret on it yet.
-- **Two-step sign-ins fill.** On a page that asks for the name and then the
-  password — Google, most Microsoft sign-ins, anything on Okta — choosing an
-  account used to say "couldn't find the sign-in fields". It fills the name
-  and tells you the password follows.
-- **Passkeys use the ones you already have.** The browser entitlement is now
-  honoured, so signing in offers the passkeys from iCloud Keychain — the same
-  ones Safari and your iPhone hold — rather than a separate store.
-- **Bluetooth.** The usage description the system needs for cross-device
-  passkeys is now declared, so the hand-off to your phone no longer crashes.
-
-## Updates
-
-- **Sparkle 2, on Gambit's own feed.** Releases are EdDSA-signed and verified
-  against a public key in the app, install on quit rather than swapping a
-  running bundle, and download as deltas.
+- **The app can see its own updates.** Version 1.0 advertised itself to
+  Sparkle as "1.0" while the installed bundle reported a build timestamp —
+  numerically far larger — so every copy already on disk considered itself
+  newer than the feed and would never have offered the release. The bundle
+  version is the release version now, which is what the 0.1.x line always did.
+- **About, Settings and ⌘K read the real feed.** They still pointed at the old
+  update fetcher and showed "The update feed answered 404". All three now show
+  Sparkle's state: the release waiting to install, the feed it came from, and
+  Check now.
 
 ## Under the hood
 
-- The bundle is named Gambit, its log subsystems and message handlers say so,
-  and the addon bridge shim matches what the Swift side calls.]]></description>
-      <enclosure url="https://github.com/Frenzyz/gambit-releases/releases/latest/download/Gambit.dmg" length="11080768" type="application/octet-stream" sparkle:edSignature="rsIz7LMaN86BiuriMmse5bfWPx7j3PVhRrVifhAlY/Ee40lESAOu6DJJEG4zJYhur0tKveJDLToKmQubmx7+Bw==" />
+- The About panel no longer credits the upstream project; this is Gambit's own
+  application.
+- The build warns when the provisioning profile cannot run WebAuthn, instead of
+  letting passkeys fail without a word.
+
+## Notes for anyone on 0.1.x
+
+The signing key for updates was rotated. A 0.1.x install will not accept this
+release's signature and needs one manual download — after that, updates work
+normally again.]]></description>
+      <enclosure url="https://github.com/Frenzyz/gambit-releases/releases/latest/download/Gambit.dmg" length="11082905" type="application/octet-stream" sparkle:edSignature="qj3B1nMj93AQxdxvCDAp2aRwogRIizmDeu1gQ1DHurN3OrMOSWPtHYtwwB5RQeqhUxj5yTycOPfYZpcXzj8SDA==" />
     </item>
   </channel>
 </rss>
