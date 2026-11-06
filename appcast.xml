@@ -6,56 +6,52 @@
     <description>Gambit Sparkle 2 appcast.</description>
     <language>en</language>
     <item>
-      <title>Gambit 1.1</title>
-      <pubDate>Fri, 06 Nov 2026 05:00:19 +0000</pubDate>
-      <sparkle:version>1.1</sparkle:version>
-      <sparkle:shortVersionString>1.1</sparkle:shortVersionString>
-      <description><![CDATA[# Gambit 1.1
+      <title>Gambit 1.2</title>
+      <pubDate>Fri, 06 Nov 2026 05:25:21 +0000</pubDate>
+      <sparkle:version>1.2</sparkle:version>
+      <sparkle:shortVersionString>1.2</sparkle:shortVersionString>
+      <description><![CDATA[# Gambit 1.2
 
-Released November 5, 2026.
+Released November 6, 2026.
 
-## Pictures, in the agent
+## About, fixed
 
-- **Screenshots reach the model that can read them.** An agent asked to look at
-  a page takes a screenshot, and that picture goes to the model as an image —
-  but only if the model accepts images. Sent to one that does not, the request
-  was refused outright and the whole turn was lost, including the page text
-  the model could still have used. That is fixed, and a text-only model is now
-  told a screenshot was taken and pointed at the tools that read the page as
-  text instead.
-- **The picker says which models see images.** Rows that accept pictures carry
-  a "sees images" mark, so the choice is visible where the choice is made
-  rather than found by hitting an error.
-- **A refusal reads honestly.** An image sent to a model that cannot take one
-  used to report "the gateway doesn't know that model", which sends you to
-  check your API key. It now says the model cannot read images and points at
-  the picker.
-
-## Updates, fixed
-
-- **The app can see its own updates.** Version 1.0 advertised itself to
-  Sparkle as "1.0" while the installed bundle reported a build timestamp —
-  numerically far larger — so every copy already on disk considered itself
-  newer than the feed and would never have offered the release. The bundle
-  version is the release version now, which is what the 0.1.x line always did.
-- **About, Settings and ⌘K read the real feed.** They still pointed at the old
-  update fetcher and showed "The update feed answered 404". All three now show
-  Sparkle's state: the release waiting to install, the feed it came from, and
-  Check now.
+- **A release build no longer calls itself a development build.** Settings ›
+  About worked out whether it was looking at a development build from the
+  shape of the version string, and the shape it looked for — two parts — is
+  also the shape of a release. Every copy of 1.1 therefore described itself as
+  `· dev build` while being signed, notarized and installed like any other
+  release. The check reads the bundle identifier now: a build that is not
+  Gambit's own id is a development build, whatever its version looks like.
+  That is the same line the rest of the app already draws when it decides a
+  run is a test run, so the About panel and the app agree about what they are.
+- **`(build 0)` is gone.** The build number was read as a whole number, and
+  since 1.1 the bundle's build version has been the release version — so
+  "1.1" read as a number is nothing at all, and the panel fell back to zero.
+  It is read as text now, and named only when it says something the version
+  does not. Here the two are the same value, so the line reads
+  `You have 1.2` and stops.
 
 ## Under the hood
 
-- The About panel no longer credits the upstream project; this is Gambit's own
-  application.
-- The build warns when the provisioning profile cannot run WebAuthn, instead of
-  letting passkeys fail without a word.
+- **The old updater stands down instead of guessing.** The updater Sparkle
+  replaced is still in the app for the staging path, and it compared the
+  feed's build number against the installed one as whole numbers. Reading an
+  installed "1.2" as zero made every entry in a feed look newer. Both
+  comparisons now read each side as a number and decline when either is not
+  one, which is the honest answer for a version-shaped build number: this
+  path has nothing to say about it, and Sparkle decides.
+- **A report says which build it came from.** The Send Feedback issue and the
+  launch line in the crash trail both read the same field, so both were
+  recording a build of zero. They now record the build as the bundle writes
+  it, which is what makes a report about a specific release traceable.
 
 ## Notes for anyone on 0.1.x
 
 The signing key for updates was rotated. A 0.1.x install will not accept this
 release's signature and needs one manual download — after that, updates work
 normally again.]]></description>
-      <enclosure url="https://github.com/Frenzyz/gambit-releases/releases/latest/download/Gambit.dmg" length="11082905" type="application/octet-stream" sparkle:edSignature="qj3B1nMj93AQxdxvCDAp2aRwogRIizmDeu1gQ1DHurN3OrMOSWPtHYtwwB5RQeqhUxj5yTycOPfYZpcXzj8SDA==" />
+      <enclosure url="https://github.com/Frenzyz/gambit-releases/releases/latest/download/Gambit.dmg" length="11082980" type="application/octet-stream" sparkle:edSignature="rsSys+WHfkBQBtCjJxZ7K5D7PHo9yLvjF52Mb74S/4iT0tnkzSq9hR99ttPaTWD+EtbbhdaVSwdyQ351Hc8oDA==" />
     </item>
   </channel>
 </rss>
