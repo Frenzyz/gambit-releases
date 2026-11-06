@@ -7,7 +7,7 @@
     <language>en</language>
     <item>
       <title>Gambit 1.0</title>
-      <pubDate>Fri, 06 Nov 2026 03:22:19 +0000</pubDate>
+      <pubDate>Fri, 06 Nov 2026 03:36:32 +0000</pubDate>
       <sparkle:version>1.0</sparkle:version>
       <sparkle:shortVersionString>1.0</sparkle:shortVersionString>
       <description><![CDATA[# Gambit 1.0
@@ -80,7 +80,7 @@ looks like the rest of the app, and updates come from Gambit's own feed.
 
 - The bundle is named Gambit, its log subsystems and message handlers say so,
   and the addon bridge shim matches what the Swift side calls.]]></description>
-      <enclosure url="https://github.com/Frenzyz/gambit-releases/releases/latest/download/Gambit.dmg" length="11085555" type="application/octet-stream" sparkle:edSignature="Np5HaBRt/sb4+01j4jWqLeGBZQo5X1htm4J0Ze2tPffgjpp2lRiiw73kPwawx02e12+8hnwW5vBPokMWqGb/AQ==" />
+      <enclosure url="https://github.com/Frenzyz/gambit-releases/releases/latest/download/Gambit.dmg" length="11080768" type="application/octet-stream" sparkle:edSignature="rsIz7LMaN86BiuriMmse5bfWPx7j3PVhRrVifhAlY/Ee40lESAOu6DJJEG4zJYhur0tKveJDLToKmQubmx7+Bw==" />
     </item>
   </channel>
 </rss>
