@@ -6,40 +6,81 @@
     <description>Gambit Sparkle 2 appcast.</description>
     <language>en</language>
     <item>
-      <title>Gambit 0.1.9</title>
-      <pubDate>Thu, 05 Nov 2026 22:47:35 +0000</pubDate>
-      <sparkle:version>0.1.9</sparkle:version>
-      <sparkle:shortVersionString>0.1.9</sparkle:shortVersionString>
-      <description><![CDATA[# Gambit 0.1.9
+      <title>Gambit 1.0</title>
+      <pubDate>Fri, 06 Nov 2026 03:22:19 +0000</pubDate>
+      <sparkle:version>1.0</sparkle:version>
+      <sparkle:shortVersionString>1.0</sparkle:shortVersionString>
+      <description><![CDATA[# Gambit 1.0
 
 Released November 5, 2026.
 
-## Since 0.1.8
+Gambit's first stable release. The browser is now its own thing rather than a
+fork wearing someone else's name: every surface says Gambit, the agent panel
+looks like the rest of the app, and updates come from Gambit's own feed.
 
-- **One engine, everywhere.** Gambit now runs on WebKit alone. Chromium is gone
-  from this build: no bundled browser, roughly a tenth of the download, and
-  Apple's security updates apply to the whole page engine instead of half of it.
-- **Chrome extensions still work.** WebKit runs real Manifest V3 extensions
-  through Apple's own extension framework. uBlock Origin Lite blocks as before,
-  and Jobright's helper panel loads and runs. A compatibility layer fills the
-  small number of gaps between Chrome's extension APIs and WebKit's; it touches
-  only Gambit's copy of an extension, never the one you installed.
-- **Docs, Sheets, and Slides.** Still editable, and text is sharp rather than
-  soft on Retina displays.
-- **Passkeys still work** with the same Touch ID flow as 0.1.8.
-- **A correct app icon.** The Dock no longer shows a placeholder.
+## The agent, rebuilt
 
-## Known limits
+- **A panel that matches the app.** The agent pane was the last piece still
+  drawn in the old fork's palette — a burnt orange that belonged to another
+  product, and an empty state that was a sparkle in a gradient circle. It now
+  uses Gambit's brass, which means exactly one thing: the agent is working.
+  The empty state is the pawn from the app icon, at the size of a paragraph.
+- **A status light.** One small lamp in the pane's header, breathing while the
+  agent works, red if a turn failed. A glance answers "is it doing anything"
+  without reading a line of text.
+- **The agent's own door.** A pawn in the tab strip, brass while the pane is
+  open. It was reachable only by a keyboard shortcut before.
 
-- Extensions that need `offscreen` documents or `userScripts` are not supported.
-  Settings reports this per extension rather than failing silently.
-- An extension's toolbar popup may render blank even when the extension itself
-  works on the page.
-- Installing from the Chrome Web Store opens the store page; the one-click
-  install flow that Chromium provided is not reproduced yet.
-- A few sites assume Chromium-specific behavior. If one breaks, the page
-  reports it rather than loading a blank view.]]></description>
-      <enclosure url="https://github.com/Frenzyz/gambit-releases/releases/latest/download/Gambit.dmg" length="14375668" type="application/octet-stream" sparkle:edSignature="nlvr/UYEviTRo/cgnFftEuSpsKqa9nryVleEUUCBUSiMkWwY3Q1zGjvDNM8GfAQOdk6kDDvW4wrqgXyhGn64Cw==" />
+## Past chats
+
+- **Conversations are kept.** "New chat" used to throw the last one away —
+  the transcript and the model's memory of it both. Every chat is now archived
+  as you work, listed newest first, and reopening one continues it rather than
+  merely replaying it.
+- Delete is there, and asks once.
+
+## OpenRouter, properly
+
+- **A searchable model picker.** The old control offered three tiers, which is
+  the right question for a router that resolves "sonnet" and the wrong one for
+  a gateway with 450 models. The picker lists what your key can actually use,
+  with price per million tokens on every row.
+- **Only models that can call tools are offered.** A model that cannot click
+  can only talk about the page, so offering it would be offering a broken
+  agent. 316 of 381 catalogue entries qualify.
+- **Model ids survive.** OpenRouter names models `anthropic/claude-sonnet-4.5`;
+  the app used to fold that to `sonnet`, which is a 404. Names are now sent
+  exactly as set.
+- **The address is no longer doubled.** `…/api/v1` used to become
+  `…/api/v1/v1/chat/completions`.
+
+## Passwords and passkeys
+
+- **Touch ID before a secret.** Picking an account read the keychain and typed
+  the password with no check that the person asking was the person who saved
+  it. It now asks first. A name-only screen asks for nothing, because there is
+  no secret on it yet.
+- **Two-step sign-ins fill.** On a page that asks for the name and then the
+  password — Google, most Microsoft sign-ins, anything on Okta — choosing an
+  account used to say "couldn't find the sign-in fields". It fills the name
+  and tells you the password follows.
+- **Passkeys use the ones you already have.** The browser entitlement is now
+  honoured, so signing in offers the passkeys from iCloud Keychain — the same
+  ones Safari and your iPhone hold — rather than a separate store.
+- **Bluetooth.** The usage description the system needs for cross-device
+  passkeys is now declared, so the hand-off to your phone no longer crashes.
+
+## Updates
+
+- **Sparkle 2, on Gambit's own feed.** Releases are EdDSA-signed and verified
+  against a public key in the app, install on quit rather than swapping a
+  running bundle, and download as deltas.
+
+## Under the hood
+
+- The bundle is named Gambit, its log subsystems and message handlers say so,
+  and the addon bridge shim matches what the Swift side calls.]]></description>
+      <enclosure url="https://github.com/Frenzyz/gambit-releases/releases/latest/download/Gambit.dmg" length="11085555" type="application/octet-stream" sparkle:edSignature="Np5HaBRt/sb4+01j4jWqLeGBZQo5X1htm4J0Ze2tPffgjpp2lRiiw73kPwawx02e12+8hnwW5vBPokMWqGb/AQ==" />
     </item>
   </channel>
 </rss>
