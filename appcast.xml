@@ -6,6 +6,36 @@
     <description>Gambit Sparkle 2 appcast.</description>
     <language>en</language>
     <item>
+      <title>Gambit 1.2.1</title>
+      <pubDate>Mon, 10 Nov 2026 07:08:00 +0000</pubDate>
+      <sparkle:version>1.2.1</sparkle:version>
+      <sparkle:shortVersionString>1.2.1</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <description><![CDATA[# Gambit 1.2.1
+
+Released November 10, 2026.
+
+## Documentation only
+
+- **This release changes no code.** It exists so that the copy of Gambit on the
+  website and in Sparkle is the build cut from `main` as it now stands, after
+  the docs review (`#363`, `#365`) landed. Nothing in the browser, the agent or
+  signing behaves any differently from 1.2.
+
+- **The release runbook now describes the path that actually ships.** The
+  `v1.2` notes above say what changed in the browser; this release is the runbook
+  catching up to how that build was really made, so the next one is not cut from
+  a document that disagrees with the tree.
+
+## Notes for anyone on 1.1 or older
+
+If you are on 1.1 or earlier, the [1.2 notes](https://github.com/Frenzyz/gambit-releases/releases/tag/v1.2)
+are the ones that matter: that release fixed About calling every build a
+development build, and fixed the old updater reading "1.2" as zero and
+therefore treating every feed entry as newer. There is nothing to do here.]]></description>
+      <enclosure url="https://github.com/Frenzyz/gambit-releases/releases/download/v1.2.1/Gambit.dmg" length="11102681" type="application/octet-stream" sparkle:edSignature="PsCAHCr5sUxJPNsO3evvLU99yk1MLZ8iGYiGYEm53P6kRgChqfnpVMq598AbKeNP1Z2JWWAV4r0X5JVyFzVMBg==" />
+    </item>
+    <item>
       <title>Gambit 1.2</title>
       <pubDate>Fri, 06 Nov 2026 05:25:21 +0000</pubDate>
       <sparkle:version>1.2</sparkle:version>
@@ -51,7 +81,7 @@ Released November 6, 2026.
 The signing key for updates was rotated. A 0.1.x install will not accept this
 release's signature and needs one manual download — after that, updates work
 normally again.]]></description>
-      <enclosure url="https://github.com/Frenzyz/gambit-releases/releases/latest/download/Gambit.dmg" length="11082980" type="application/octet-stream" sparkle:edSignature="rsSys+WHfkBQBtCjJxZ7K5D7PHo9yLvjF52Mb74S/4iT0tnkzSq9hR99ttPaTWD+EtbbhdaVSwdyQ351Hc8oDA==" />
+      <enclosure url="https://github.com/Frenzyz/gambit-releases/releases/download/v1.2/Gambit.dmg" length="11082980" type="application/octet-stream" sparkle:edSignature="rsSys+WHfkBQBtCjJxZ7K5D7PHo9yLvjF52Mb74S/4iT0tnkzSq9hR99ttPaTWD+EtbbhdaVSwdyQ351Hc8oDA==" />
     </item>
   </channel>
 </rss>
