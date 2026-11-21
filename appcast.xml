@@ -7,57 +7,118 @@
     <language>en</language>
     <item>
       <title>Gambit 1.3.0</title>
-      <pubDate>Sat, 21 Nov 2026 08:07:39 +0000</pubDate>
+      <pubDate>Sat, 21 Nov 2026 08:08:28 +0000</pubDate>
       <sparkle:version>1.3.0</sparkle:version>
       <sparkle:shortVersionString>1.3.0</sparkle:shortVersionString>
       <description><![CDATA[# Gambit 1.3.0
 
 Released November 21, 2026.
 
-## Your Mac, from your phone
+## Your Mac's agent, in your pocket
 
-The iPhone can now show you what your Mac is looking at, and talk to the agent
-running there. It is in Settings › Pairing › Your Mac, and on a button beside
-Tabs once you have paired.
+**The first browser where your phone drives the agent on your computer.**
 
-- **A live view of the tab.** Not a still that refreshes: a frame loop, so a page
-  in motion updates as fast as it can be encoded and a still one costs almost
-  nothing. Pinch to zoom, double-tap to zoom at a point, or open it full screen
-  and read a document properly — a desktop page on a phone needs magnification,
-  not a bigger box.
+Open a button beside Tabs on your iPhone and you are looking at your Mac. Not a
+mirror of a tab list — the actual page, live, and the actual agent, working on it.
 
-- **The Mac's agent, on the Mac's pages.** Type into the composer and the turn
-  runs *there*, on the Mac's tabs with the Mac's sign-ins. The transcript streams
-  back with each step as a sentence — "Read 4 results on Google Drive · 1.2s" —
-  and Markdown and tables render as they do in the phone's own agent pane.
+- **The Mac's own pages, with the Mac's own sign-ins.** Ask for something and the
+  turn runs *on the Mac*, on the tabs you are signed in to there. Nothing has to be
+  re-authenticated on the phone, and nothing about your session leaves the Mac.
 
-- **Read-only mirroring.** Nothing in the phone can click, type or navigate on
-  your Mac. That is by construction, not a setting: no route takes an action.
+- **A live picture, not a screenshot.** A frame loop keeps the view current: a page
+  in motion updates as fast as it can be encoded, a still one costs almost nothing.
+  Pinch to zoom, double-tap to zoom where your finger is, or go full screen and
+  read a PDF properly — a desktop page on a phone needs magnification, not a
+  bigger box.
 
-## Pairing without Tailscale installed
+- **The transcript, as it happens.** Each step arrives as a sentence — "Read 4
+  results on Google Drive · 1.2s" — tap for the detail, and the agent's answers
+  render as Markdown and tables, exactly as they do in the phone's own pane.
 
-The phone runs its own tailnet node now, so a `.ts.net` code works with nothing
-installed but Gambit. It needed no VPN entitlement — the Go library Gambit links
-is a userspace network stack, not a packet tunnel.
+- **Read-only mirroring, by construction.** The phone can see your Mac; it cannot
+  click, type or navigate on it. There is no route that accepts an action, so this
+  is not a setting you can get wrong — it is the shape of the thing.
 
-## Fixed
+Ask the agent to switch tabs and the picture follows. That is the whole idea: the
+work happens where your browser already is, and the phone is the window onto it.
 
-- **Signing out of Tailscale stranded the node.** Sign-in pages are minted once
-  in the lifetime of the process, so a node that had been signed out could never
-  sign back in: the card spun on "asking Tailscale for a sign-in page" for ever.
-  It now asks again, and the page arrives in about a second.
+## Pairing that needs nothing installed
 
-- **Sign out, from either app.** There was no way to leave a tailnet before. Both
-  platforms now offer it, behind a confirmation.
+The phone now runs Gambit's own tailnet node, so a `.ts.net` pairing code works
+with nothing but Gambit on the device — no VPN profile, no second app, no account
+beyond the one you already signed in with.
 
-- **The address bar showed tracking data.** A Google search rendered in full is
-  227 characters, most of it protobuf base64 — it looked like a rendering fault,
-  and it was one. The pill now shows `google.com/search?q=your words`.
+It needed no VPN entitlement. The library Gambit links is a userspace network
+stack, not a packet tunnel, which was measured before a line of it was written.
 
-## The rest
+- **Sign out of Tailscale**, from either app, when you want the Mac off your
+  tailnet. Behind a confirmation, because a pairing made over the tailnet stops
+  being dialable — the key is kept, the name is gone.
+- **Signing out no longer strands the node.** Sign-in pages are minted once in the
+  lifetime of the process, so a node that had been signed out could never sign back
+  in: the card spun for ever. It now asks again, and the page arrives in about a
+  second.
 
-Everything since 1.0 is in `CHANGELOG.md`; 1.1 and 1.2 shipped without their
-sections being cut, so this release's notes include them.]]></description>
+## Share a tab, not your screen
+
+When a page asks to share your screen — Meet, Zoom on the web, a Slack huddle —
+Gambit asks what to share, and offers **your tabs**. A tab is shared as its page
+alone, at 30 frames a second and 1920 pixels wide, and keeps coming while you go
+back to the call. No Screen Recording permission, and nothing of Gambit's own
+chrome in the picture.
+
+## Web pages hear you, reliably
+
+Calls in Gambit lost the microphone in several ways, all fixed: a second request
+while the bar was up was refused without asking, a call in a background tab was
+treated as hidden, and switching audio devices did not reach a call you were in.
+Now requests wait their turn, one Allow settles everything it covers, and when
+macOS refuses Gambit the microphone the bar says so with a button to fix it.
+
+## Passkeys, passwords, and accounts
+
+- **Passkeys** work beside 1Password and other WebAuthn extensions, and appear in
+  the account list.
+- **The accounts popup** lists every saved account, searchable, without needing the
+  Bitwarden extension.
+- **Passwords fill inside frames** — sign-ins embedded in a page, not just
+  top-level ones.
+- **Suggest a strong password** on sign-up and change-password forms.
+
+## The address bar
+
+A Google search used to render in full: 227 characters, most of it protobuf
+base64, which looked exactly like a rendering fault — and was one. The pill now
+shows `google.com/search?q=your words`.
+
+## Settings, shorter
+
+Ten pages instead of fifteen, because a page that was a card or two now lives
+beside the page it belongs to: Downloads under General, Voice under Intelligence,
+Addons under Extensions, Updates under About. Advanced rows fold away, and settings
+that cannot apply are hidden rather than greyed out. Search finds everything where
+it now lives.
+
+## Also fixed
+
+- **Folders survive a second window.** Switching spaces in one window no longer
+  takes the other window's Saved tabs out of their folders.
+- **Sign-in pages no longer refresh for ever.** A password manager's menu inside a
+  sign-in field could reload a page every second, endlessly.
+- **Agents can name every tab by its id**, including the one-in-fifty whose id is
+  all digits.
+- **A shared tab keeps 30 frames a second**, however long you share it.
+- **Cloud: another device can no longer undo your folders** — only what you changed
+  by hand is sent, and a sync that would unfix more than ten kept tabs asks first.
+- **Gambit runs on Intel Macs**, and the website installs it on Windows and Linux
+  too.
+- **Tabs switch without the window catching** on certificate prompts, spinners and
+  saves.
+- **Trails and Tide are gone.** Today is always the plain list.
+
+---
+
+Everything, in detail, is in `CHANGELOG.md`.]]></description>
       <enclosure url="https://github.com/Frenzyz/gambit-releases/releases/latest/download/Gambit.dmg" length="20193547" type="application/octet-stream" sparkle:edSignature="yp7cmqc6vQeM/3sndXAn1DMWMmP8YfzvtUvL7UOy2/0w1StxN9GYy0SI3AvcVPczytMLH5GQQKW1BPW/zqh9Dg==" />
     </item>
   </channel>
