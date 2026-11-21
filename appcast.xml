@@ -6,82 +6,59 @@
     <description>Gambit Sparkle 2 appcast.</description>
     <language>en</language>
     <item>
-      <title>Gambit 1.2.1</title>
-      <pubDate>Mon, 10 Nov 2026 07:08:00 +0000</pubDate>
-      <sparkle:version>1.2.1</sparkle:version>
-      <sparkle:shortVersionString>1.2.1</sparkle:shortVersionString>
-      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-      <description><![CDATA[# Gambit 1.2.1
+      <title>Gambit 1.3.0</title>
+      <pubDate>Sat, 21 Nov 2026 08:07:39 +0000</pubDate>
+      <sparkle:version>1.3.0</sparkle:version>
+      <sparkle:shortVersionString>1.3.0</sparkle:shortVersionString>
+      <description><![CDATA[# Gambit 1.3.0
 
-Released November 10, 2026.
+Released November 21, 2026.
 
-## Documentation only
+## Your Mac, from your phone
 
-- **This release changes no code.** It exists so that the copy of Gambit on the
-  website and in Sparkle is the build cut from `main` as it now stands, after
-  the docs review (`#363`, `#365`) landed. Nothing in the browser, the agent or
-  signing behaves any differently from 1.2.
+The iPhone can now show you what your Mac is looking at, and talk to the agent
+running there. It is in Settings › Pairing › Your Mac, and on a button beside
+Tabs once you have paired.
 
-- **The release runbook now describes the path that actually ships.** The
-  `v1.2` notes above say what changed in the browser; this release is the runbook
-  catching up to how that build was really made, so the next one is not cut from
-  a document that disagrees with the tree.
+- **A live view of the tab.** Not a still that refreshes: a frame loop, so a page
+  in motion updates as fast as it can be encoded and a still one costs almost
+  nothing. Pinch to zoom, double-tap to zoom at a point, or open it full screen
+  and read a document properly — a desktop page on a phone needs magnification,
+  not a bigger box.
 
-## Notes for anyone on 1.1 or older
+- **The Mac's agent, on the Mac's pages.** Type into the composer and the turn
+  runs *there*, on the Mac's tabs with the Mac's sign-ins. The transcript streams
+  back with each step as a sentence — "Read 4 results on Google Drive · 1.2s" —
+  and Markdown and tables render as they do in the phone's own agent pane.
 
-If you are on 1.1 or earlier, the [1.2 notes](https://github.com/Frenzyz/gambit-releases/releases/tag/v1.2)
-are the ones that matter: that release fixed About calling every build a
-development build, and fixed the old updater reading "1.2" as zero and
-therefore treating every feed entry as newer. There is nothing to do here.]]></description>
-      <enclosure url="https://github.com/Frenzyz/gambit-releases/releases/download/v1.2.1/Gambit.dmg" length="11102681" type="application/octet-stream" sparkle:edSignature="PsCAHCr5sUxJPNsO3evvLU99yk1MLZ8iGYiGYEm53P6kRgChqfnpVMq598AbKeNP1Z2JWWAV4r0X5JVyFzVMBg==" />
-    </item>
-    <item>
-      <title>Gambit 1.2</title>
-      <pubDate>Fri, 06 Nov 2026 05:25:21 +0000</pubDate>
-      <sparkle:version>1.2</sparkle:version>
-      <sparkle:shortVersionString>1.2</sparkle:shortVersionString>
-      <description><![CDATA[# Gambit 1.2
+- **Read-only mirroring.** Nothing in the phone can click, type or navigate on
+  your Mac. That is by construction, not a setting: no route takes an action.
 
-Released November 6, 2026.
+## Pairing without Tailscale installed
 
-## About, fixed
+The phone runs its own tailnet node now, so a `.ts.net` code works with nothing
+installed but Gambit. It needed no VPN entitlement — the Go library Gambit links
+is a userspace network stack, not a packet tunnel.
 
-- **A release build no longer calls itself a development build.** Settings ›
-  About worked out whether it was looking at a development build from the
-  shape of the version string, and the shape it looked for — two parts — is
-  also the shape of a release. Every copy of 1.1 therefore described itself as
-  `· dev build` while being signed, notarized and installed like any other
-  release. The check reads the bundle identifier now: a build that is not
-  Gambit's own id is a development build, whatever its version looks like.
-  That is the same line the rest of the app already draws when it decides a
-  run is a test run, so the About panel and the app agree about what they are.
-- **`(build 0)` is gone.** The build number was read as a whole number, and
-  since 1.1 the bundle's build version has been the release version — so
-  "1.1" read as a number is nothing at all, and the panel fell back to zero.
-  It is read as text now, and named only when it says something the version
-  does not. Here the two are the same value, so the line reads
-  `You have 1.2` and stops.
+## Fixed
 
-## Under the hood
+- **Signing out of Tailscale stranded the node.** Sign-in pages are minted once
+  in the lifetime of the process, so a node that had been signed out could never
+  sign back in: the card spun on "asking Tailscale for a sign-in page" for ever.
+  It now asks again, and the page arrives in about a second.
 
-- **The old updater stands down instead of guessing.** The updater Sparkle
-  replaced is still in the app for the staging path, and it compared the
-  feed's build number against the installed one as whole numbers. Reading an
-  installed "1.2" as zero made every entry in a feed look newer. Both
-  comparisons now read each side as a number and decline when either is not
-  one, which is the honest answer for a version-shaped build number: this
-  path has nothing to say about it, and Sparkle decides.
-- **A report says which build it came from.** The Send Feedback issue and the
-  launch line in the crash trail both read the same field, so both were
-  recording a build of zero. They now record the build as the bundle writes
-  it, which is what makes a report about a specific release traceable.
+- **Sign out, from either app.** There was no way to leave a tailnet before. Both
+  platforms now offer it, behind a confirmation.
 
-## Notes for anyone on 0.1.x
+- **The address bar showed tracking data.** A Google search rendered in full is
+  227 characters, most of it protobuf base64 — it looked like a rendering fault,
+  and it was one. The pill now shows `google.com/search?q=your words`.
 
-The signing key for updates was rotated. A 0.1.x install will not accept this
-release's signature and needs one manual download — after that, updates work
-normally again.]]></description>
-      <enclosure url="https://github.com/Frenzyz/gambit-releases/releases/download/v1.2/Gambit.dmg" length="11082980" type="application/octet-stream" sparkle:edSignature="rsSys+WHfkBQBtCjJxZ7K5D7PHo9yLvjF52Mb74S/4iT0tnkzSq9hR99ttPaTWD+EtbbhdaVSwdyQ351Hc8oDA==" />
+## The rest
+
+Everything since 1.0 is in `CHANGELOG.md`; 1.1 and 1.2 shipped without their
+sections being cut, so this release's notes include them.]]></description>
+      <enclosure url="https://github.com/Frenzyz/gambit-releases/releases/latest/download/Gambit.dmg" length="20193547" type="application/octet-stream" sparkle:edSignature="yp7cmqc6vQeM/3sndXAn1DMWMmP8YfzvtUvL7UOy2/0w1StxN9GYy0SI3AvcVPczytMLH5GQQKW1BPW/zqh9Dg==" />
     </item>
   </channel>
 </rss>
