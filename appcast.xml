@@ -6,89 +6,66 @@
     <description>Gambit Sparkle 2 appcast.</description>
     <language>en</language>
     <item>
-      <title>Gambit 1.3.1</title>
-      <pubDate>Sun, 22 Nov 2026 03:37:00 +0000</pubDate>
-      <sparkle:version>1.3.1.202611212231</sparkle:version>
-      <sparkle:shortVersionString>1.3.1</sparkle:shortVersionString>
-      <description><![CDATA[# Gambit 1.3.1
+      <title>Gambit 1.3.2</title>
+      <pubDate>Sun, 22 Nov 2026 09:44:07 +0000</pubDate>
+      <sparkle:version>1.3.2.202611220438</sparkle:version>
+      <sparkle:shortVersionString>1.3.2</sparkle:shortVersionString>
+      <description><![CDATA[# Gambit 1.3.2
 
 Released November 22, 2026.
 
-## Your Mac goes on serving after a relaunch
+## On 1.3.0 or 1.3.1? Download the DMG by hand, once
 
-The remote screen had one hole in it, and it was the one that made the whole
-feature look broken: quit Gambit, open it again, and the phone could no longer
-reach your Mac.
+**If you are running 1.3.0 or 1.3.1, this build will not arrive through the
+update button. Download it yourself, once:**
 
-Nothing was wrong with the pairing — it was still there, in the keychain, from
-months ago. What was missing was a listener. A pairing survives a quit; a socket
-does not, and only the act of *pairing* had ever started one. So a Mac that had
-been paired for weeks came back from every relaunch with nothing answering, and
-the phone sat on "Connecting to your Mac…" to a computer open in front of you.
+**https://github.com/Frenzyz/gambit-releases/releases/latest/download/Gambit.dmg**
 
-**It now serves itself.** A Mac with a pairing starts listening as it opens, with
-no code to scan and nothing to press — the address the phone already has just
-answers again. If the network is not up yet when Gambit opens, it tries again at
-ten seconds, thirty, and a minute rather than going quiet until you open
-Settings.
+Open the DMG and drag Gambit to Applications, replacing the copy you have. From
+1.3.2 onward, updates install themselves again — this is the only time you have
+to do it by hand.
 
-Settings › Cloud now says which it is: **Listening**, with the address your
-phone dials, or what stopped it. That row exists because the failure was
-invisible before — "paired" and "reachable" turned out to be two different
-facts, and the app only ever showed you the first.
+This is worth a paragraph of explanation, because the reason is the whole story
+of the release.
 
-Signing out of Tailscale stops the listener with the node, so the card cannot go
-on claiming to listen for a Mac that no longer has a name.
+Gambit's updater is a small helper app that lives inside Gambit, called
+`Autoupdate`. Its job is to quit Gambit, put the new copy in place, and open it
+again. Since 1.3.0, that helper has been built in a way macOS refuses to run.
+macOS looks at its signature, sees it claiming permissions that only Gambit
+itself is allowed to hold, and kills it the moment it starts — before it can do
+anything, and without saying why.
 
-## A turn from your phone now acts
+So every time you pressed Update, the download arrived, the signature checked
+out, and then the thing that installs it was silently killed. Gambit showed you
+*"An error occurred while running the updater. Please try again later."*
+Pressed again, it failed again. There was nothing wrong with your network, your
+disk, or the build it was trying to fetch.
 
-Asking the phone to "open YouTube" used to come back with *Browser control is
-off — turn on Control in the agent composer* — a switch that lives on the Mac,
-in a chip the phone cannot reach.
+**The trap is that an update cannot repair the updater that delivers it.** The
+only way to replace a helper that cannot run is to not use it — which means
+putting this one in place by hand, once. After that, `Autoupdate` works, and
+updates arrive normally again.
 
-A turn started from the phone now carries its own permission, separate from the
-chip you set for your own typing. Pairing is the grant: the phone can act,
-without you having to leave a switch on for your own turns. Your Control chip
-still means exactly what it meant for the turns you start yourself.
+The build is fixed on our side: the helper is now signed on its own, without the
+permissions that got it killed, and the build refuses to produce a release if a
+helper ever carries them again. That last part matters — this shipped twice, and
+both times it was invisible until someone tried to update.
 
-## The remote feed shows a new tab
+## Everything else in this release
 
-Opening a new tab on the Mac and looking at the phone showed "Connecting…"
-forever. A new tab has no page yet — Gambit draws the board instead — so there
-was nothing to photograph, and what the phone got was an empty picture that
-looked like a broken connection.
+Nothing else changed for you. This is 1.3.1 with a working updater.
 
-The board is now drawn off screen and sent, a frame every second and a half or
-so. Mostly it is still, so it costs almost nothing.
-
-## Your Mac's address heals
-
-Rename the Mac, or let Tailscale re-create its node, and the phone used to dial
-the old name forever — a pairing that worked, and reached nothing.
-
-The phone now asks the Mac where it is. The Mac answers with a full, dialable
-address, and the phone follows it. A Mac that has been renamed is found again
-without pairing a second time.
-
-## A long address stays in its pill
-
-On the iPhone, a long address — a search, a long path — drew the field past the
-edge of the screen: 514 points of pill in a 402-point screen, starting off the
-left edge. Collapsed, the pill is now sized by the room it has rather than by
-how many characters it holds, so it can never be wider than the dock, at any
-text size.
-
-## Also in this release
-
-- **Remote turns respect a setting change mid-run.** Flipping Control while a
-  turn from the phone is running cannot widen what that turn is allowed to do.
+If you are coming from 1.3.0, you also get 1.3.1's fixes — your Mac serves the
+remote screen again after a relaunch, a turn started from the phone can act
+without the Mac's Control chip, and a long address stays inside its pill on the
+iPhone.
 
 ---
 
 Your passkeys still do not work: this build's provisioning profile is missing
 the Web Browser entitlement, so WebAuthn is unavailable. It is unchanged from
 1.3.0 and is being fixed separately.]]></description>
-      <enclosure url="https://github.com/Frenzyz/gambit-releases/releases/download/v1.3.1/Gambit.dmg" length="20145867" type="application/octet-stream" sparkle:edSignature="EG5CUQk9sivNbiixbaVm1JpwAM3PPDcAv3jVp/OuiYJo1nzJ5By3axRw3yZYovOzhIiMjsk6VEbrj0N+c0TNAg==" />
+      <enclosure url="https://github.com/Frenzyz/gambit-releases/releases/download/v1.3.2/Gambit.dmg" length="20143648" type="application/octet-stream" sparkle:edSignature="ln4ZuNDtkE1wPydQAo2lrcz3QQS7HYeDCKPFUJUmEzRYjAAfqCRvTIruLLWtOs5I1efnQNJdlUhGkTQS8SegAQ==" />
     </item>
   </channel>
 </rss>
