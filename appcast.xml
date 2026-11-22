@@ -6,120 +6,89 @@
     <description>Gambit Sparkle 2 appcast.</description>
     <language>en</language>
     <item>
-      <title>Gambit 1.3.0</title>
-      <pubDate>Sat, 21 Nov 2026 20:29:05 +0000</pubDate>
-      <sparkle:version>1.3.0.202611211522</sparkle:version>
-      <sparkle:shortVersionString>1.3.0</sparkle:shortVersionString>
-      <description><![CDATA[# Gambit 1.3.0
+      <title>Gambit 1.3.1</title>
+      <pubDate>Sun, 22 Nov 2026 03:37:00 +0000</pubDate>
+      <sparkle:version>1.3.1.202611212231</sparkle:version>
+      <sparkle:shortVersionString>1.3.1</sparkle:shortVersionString>
+      <description><![CDATA[# Gambit 1.3.1
 
-Released November 21, 2026.
+Released November 22, 2026.
 
-## Your Mac's agent, in your pocket
+## Your Mac goes on serving after a relaunch
 
-**The first browser where your phone drives the agent on your computer.**
+The remote screen had one hole in it, and it was the one that made the whole
+feature look broken: quit Gambit, open it again, and the phone could no longer
+reach your Mac.
 
-Open a button beside Tabs on your iPhone and you are looking at your Mac. Not a
-mirror of a tab list — the actual page, live, and the actual agent, working on it.
+Nothing was wrong with the pairing — it was still there, in the keychain, from
+months ago. What was missing was a listener. A pairing survives a quit; a socket
+does not, and only the act of *pairing* had ever started one. So a Mac that had
+been paired for weeks came back from every relaunch with nothing answering, and
+the phone sat on "Connecting to your Mac…" to a computer open in front of you.
 
-- **The Mac's own pages, with the Mac's own sign-ins.** Ask for something and the
-  turn runs *on the Mac*, on the tabs you are signed in to there. Nothing has to be
-  re-authenticated on the phone, and nothing about your session leaves the Mac.
+**It now serves itself.** A Mac with a pairing starts listening as it opens, with
+no code to scan and nothing to press — the address the phone already has just
+answers again. If the network is not up yet when Gambit opens, it tries again at
+ten seconds, thirty, and a minute rather than going quiet until you open
+Settings.
 
-- **A live picture, not a screenshot.** A frame loop keeps the view current: a page
-  in motion updates as fast as it can be encoded, a still one costs almost nothing.
-  Pinch to zoom, double-tap to zoom where your finger is, or go full screen and
-  read a PDF properly — a desktop page on a phone needs magnification, not a
-  bigger box.
+Settings › Cloud now says which it is: **Listening**, with the address your
+phone dials, or what stopped it. That row exists because the failure was
+invisible before — "paired" and "reachable" turned out to be two different
+facts, and the app only ever showed you the first.
 
-- **The transcript, as it happens.** Each step arrives as a sentence — "Read 4
-  results on Google Drive · 1.2s" — tap for the detail, and the agent's answers
-  render as Markdown and tables, exactly as they do in the phone's own pane.
+Signing out of Tailscale stops the listener with the node, so the card cannot go
+on claiming to listen for a Mac that no longer has a name.
 
-- **Read-only mirroring, by construction.** The phone can see your Mac; it cannot
-  click, type or navigate on it. There is no route that accepts an action, so this
-  is not a setting you can get wrong — it is the shape of the thing.
+## A turn from your phone now acts
 
-Ask the agent to switch tabs and the picture follows. That is the whole idea: the
-work happens where your browser already is, and the phone is the window onto it.
+Asking the phone to "open YouTube" used to come back with *Browser control is
+off — turn on Control in the agent composer* — a switch that lives on the Mac,
+in a chip the phone cannot reach.
 
-## Pairing that needs nothing installed
+A turn started from the phone now carries its own permission, separate from the
+chip you set for your own typing. Pairing is the grant: the phone can act,
+without you having to leave a switch on for your own turns. Your Control chip
+still means exactly what it meant for the turns you start yourself.
 
-The phone now runs Gambit's own tailnet node, so a `.ts.net` pairing code works
-with nothing but Gambit on the device — no VPN profile, no second app, no account
-beyond the one you already signed in with.
+## The remote feed shows a new tab
 
-It needed no VPN entitlement. The library Gambit links is a userspace network
-stack, not a packet tunnel, which was measured before a line of it was written.
+Opening a new tab on the Mac and looking at the phone showed "Connecting…"
+forever. A new tab has no page yet — Gambit draws the board instead — so there
+was nothing to photograph, and what the phone got was an empty picture that
+looked like a broken connection.
 
-- **Sign out of Tailscale**, from either app, when you want the Mac off your
-  tailnet. Behind a confirmation, because a pairing made over the tailnet stops
-  being dialable — the key is kept, the name is gone.
-- **Signing out no longer strands the node.** Sign-in pages are minted once in the
-  lifetime of the process, so a node that had been signed out could never sign back
-  in: the card spun for ever. It now asks again, and the page arrives in about a
-  second.
+The board is now drawn off screen and sent, a frame every second and a half or
+so. Mostly it is still, so it costs almost nothing.
 
-## Share a tab, not your screen
+## Your Mac's address heals
 
-When a page asks to share your screen — Meet, Zoom on the web, a Slack huddle —
-Gambit asks what to share, and offers **your tabs**. A tab is shared as its page
-alone, at 30 frames a second and 1920 pixels wide, and keeps coming while you go
-back to the call. No Screen Recording permission, and nothing of Gambit's own
-chrome in the picture.
+Rename the Mac, or let Tailscale re-create its node, and the phone used to dial
+the old name forever — a pairing that worked, and reached nothing.
 
-## Web pages hear you, reliably
+The phone now asks the Mac where it is. The Mac answers with a full, dialable
+address, and the phone follows it. A Mac that has been renamed is found again
+without pairing a second time.
 
-Calls in Gambit lost the microphone in several ways, all fixed: a second request
-while the bar was up was refused without asking, a call in a background tab was
-treated as hidden, and switching audio devices did not reach a call you were in.
-Now requests wait their turn, one Allow settles everything it covers, and when
-macOS refuses Gambit the microphone the bar says so with a button to fix it.
+## A long address stays in its pill
 
-## Passkeys, passwords, and accounts
+On the iPhone, a long address — a search, a long path — drew the field past the
+edge of the screen: 514 points of pill in a 402-point screen, starting off the
+left edge. Collapsed, the pill is now sized by the room it has rather than by
+how many characters it holds, so it can never be wider than the dock, at any
+text size.
 
-- **Passkeys** work beside 1Password and other WebAuthn extensions, and appear in
-  the account list.
-- **The accounts popup** lists every saved account, searchable, without needing the
-  Bitwarden extension.
-- **Passwords fill inside frames** — sign-ins embedded in a page, not just
-  top-level ones.
-- **Suggest a strong password** on sign-up and change-password forms.
+## Also in this release
 
-## The address bar
-
-A Google search used to render in full: 227 characters, most of it protobuf
-base64, which looked exactly like a rendering fault — and was one. The pill now
-shows `google.com/search?q=your words`.
-
-## Settings, shorter
-
-Ten pages instead of fifteen, because a page that was a card or two now lives
-beside the page it belongs to: Downloads under General, Voice under Intelligence,
-Addons under Extensions, Updates under About. Advanced rows fold away, and settings
-that cannot apply are hidden rather than greyed out. Search finds everything where
-it now lives.
-
-## Also fixed
-
-- **Folders survive a second window.** Switching spaces in one window no longer
-  takes the other window's Saved tabs out of their folders.
-- **Sign-in pages no longer refresh for ever.** A password manager's menu inside a
-  sign-in field could reload a page every second, endlessly.
-- **Agents can name every tab by its id**, including the one-in-fifty whose id is
-  all digits.
-- **A shared tab keeps 30 frames a second**, however long you share it.
-- **Cloud: another device can no longer undo your folders** — only what you changed
-  by hand is sent, and a sync that would unfix more than ten kept tabs asks first.
-- **Gambit runs on Intel Macs**, and the website installs it on Windows and Linux
-  too.
-- **Tabs switch without the window catching** on certificate prompts, spinners and
-  saves.
-- **Trails and Tide are gone.** Today is always the plain list.
+- **Remote turns respect a setting change mid-run.** Flipping Control while a
+  turn from the phone is running cannot widen what that turn is allowed to do.
 
 ---
 
-Everything, in detail, is in `CHANGELOG.md`.]]></description>
-      <enclosure url="https://github.com/Frenzyz/gambit-releases/releases/download/v1.3.0/Gambit.dmg" length="20127332" type="application/octet-stream" sparkle:edSignature="o/uhBp3cPhv2tvsQLZ3KOpRIF/6XkEF+XQCAT9RSxMUcEDu9omnsxrYRiU6kSR96np8DlvdTyBCoyqAX2pZdDw==" />
+Your passkeys still do not work: this build's provisioning profile is missing
+the Web Browser entitlement, so WebAuthn is unavailable. It is unchanged from
+1.3.0 and is being fixed separately.]]></description>
+      <enclosure url="https://github.com/Frenzyz/gambit-releases/releases/download/v1.3.1/Gambit.dmg" length="20145867" type="application/octet-stream" sparkle:edSignature="EG5CUQk9sivNbiixbaVm1JpwAM3PPDcAv3jVp/OuiYJo1nzJ5By3axRw3yZYovOzhIiMjsk6VEbrj0N+c0TNAg==" />
     </item>
   </channel>
 </rss>
